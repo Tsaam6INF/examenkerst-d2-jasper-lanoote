@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.css";
 import "./leerlingen.css";
 
 interface start {
@@ -14,15 +15,19 @@ function Leerlingen({ start }: Props) {
     <>
       <ul>
         {start.map((task, index) => (
-          <div className="card">
+          <div className="card text-bg-primary mb-3">
             <span>
-              <h1>{task.naam}</h1>
+              <h1 className="card-title">{task.naam}</h1>
             </span>
-            <ul>
-              {task.klassen.map((klas, incex) => (
-                <li>{klas}</li>
-              ))}
-            </ul>
+            <div>
+              <ul className="list-group list-group-horizontal-sm">
+                {task.klassen.map((klas, index) => (
+                  <li className="list-group-item list-group-item-secondary">
+                    {klas}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </ul>
